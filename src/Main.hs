@@ -32,27 +32,27 @@ splitTreap (tree @ Tree {node = Node { val = x }, left = l, right = r})   v
                 (   lt, 
                     Tree { node = node tree, left = rt, right = r}  )
 
-mergeTreap :: (Treap v d, Treap v d) -> Treap v d
-mergeTreap (Leaf, t) = t
-mergeTreap (t, Leaf) = t
-mergeTreap ( lt@Tree { node = Node { prior = pl } }, rt@Tree { node = Node { prior = pr }} )
-    | pl >= pr = let mt = mergeTreap (right lt, rt) in
+mergeTreap :: Treap v d -> Treap v d -> Treap v d
+mergeTreap Leaf t = t
+mergeTreap t Leaf = t
+mergeTreap lt@Tree { node = Node { prior = pl } } rt@Tree { node = Node { prior = pr }}
+    | pl >= pr = let mt = mergeTreap (right lt) rt in
                     Tree { node = node lt, left = left lt, right = mt}
-    | pl < pr  = let mt = mergeTreap (lt, left rt) in
+    | pl < pr  = let mt = mergeTreap lt (left rt) in
                     Tree { node = node rt, left = mt, right = right rt}
 
 insertTreap :: (Ord v) => Treap v d -> Node v d -> Treap v d
 insertTreap t (z @ Node {val = v}) = 
     let (lt, rt) = splitTreap t v
         t' = Tree { node = z, left = Leaf, right = Leaf} 
-     in mergeTreap (mergeTreap (lt, t'), rt)
+     in mergeTreap (mergeTreap lt t') rt
 
 inOrder :: Treap v d -> [Node v d]
 inOrder Leaf = []
 inOrder Tree {node = n, left = lt, right = rt} = inOrder lt ++ [n] ++ inOrder rt
 
 insertMany :: (Ord v) => Treap v d -> [Node v d] -> Treap v d
-insertMany = foldl insertTreap 
+insertMany = foldl' insertTreap
 
 heightTreap :: Treap v d -> Int
 heightTreap Leaf = 0
