@@ -1,0 +1,157 @@
+	Mon Dec 18 10:27 2017 Time and Allocation Profiling Report  (Final)
+
+	   treap +RTS -s -hd -p -RTS
+
+	total time  =        0.58 secs   (582 ticks @ 1000 us, 1 processor)
+	total alloc = 707,543,080 bytes  (excludes profiling overheads)
+
+COST CENTRE         MODULE        SRC                                %time %alloc
+
+splitTreap          Main          src/Main.hs:(26,1)-(33,69)          19.8   42.9
+mergeTreap          Main          src/Main.hs:(36,1)-(42,71)          17.4   13.3
+splitTreap.(...)    Main          src/Main.hs:31:20-44                15.3    3.6
+main                Main          src/Main.hs:(73,1)-(83,53)          13.7    5.5
+splitTreap.(...)    Main          src/Main.hs:28:20-44                12.0    3.2
+stdNext             System.Random System/Random.hs:(518,1)-(528,64)    4.6    5.0
+randomIvalInteger   System.Random System/Random.hs:(468,1)-(489,76)    3.6    4.4
+inOrder             Main          src/Main.hs:(51,1)-(52,80)           1.9    9.1
+mergeTreap.mt       Main          src/Main.hs:41:22-50                 1.7    0.0
+mergeTreap.mt       Main          src/Main.hs:39:22-51                 1.7    0.0
+heightTreap         Main          src/Main.hs:(58,1)-(59,96)           1.2    0.0
+randomIvalInteger.b System.Random System/Random.hs:473:8-54            0.5    1.1
+main.nodeList       Main          src/Main.hs:78:9-55                  0.3    1.1
+feedFold            Main          src/Main.hs:(14,1)-(16,44)           0.2    1.9
+buildNode           Main          src/Main.hs:(22,1)-(23,62)           0.2    2.0
+
+
+                                                                                                              individual      inherited
+COST CENTRE                        MODULE                SRC                               no.     entries  %time %alloc   %time %alloc
+
+MAIN                               MAIN                  <built-in>                        240          0    0.0    0.0   100.0  100.0
+ CAF                               GHC.IO.Encoding       <entire-module>                   287          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Handle.FD      <entire-module>                   285          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Handle.Text    <entire-module>                   279          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.Conc.Signal       <entire-module>                   273          0    0.0    0.0     0.0    0.0
+ CAF                               GHC.IO.Encoding.Iconv <entire-module>                   270          0    0.0    0.0     0.0    0.0
+ CAF:$fRandomGenStdGen_$cnext      System.Random         System/Random.hs:218:3-6          299          0    0.0    0.0     0.0    0.0
+  next                             System.Random         System/Random.hs:218:3-17         519          1    0.0    0.0     0.0    0.0
+ CAF:empty                         Main                  src/Main.hs:19:1-5                461          0    0.0    0.0     0.0    0.0
+  empty                            Main                  src/Main.hs:19:1-12               568          1    0.0    0.0     0.0    0.0
+ CAF:getStdGen1                    System.Random         <no location info>                297          0    0.0    0.0     0.0    0.0
+  getStdGen                        System.Random         System/Random.hs:563:1-32         482          1    0.0    0.0     0.0    0.0
+ CAF:getStdRandom3                 System.Random         <no location info>                295          0    0.0    0.0     0.0    0.0
+  theStdGen                        System.Random         System/Random.hs:(566,1)-(568,15) 485          0    0.0    0.0     0.0    0.0
+   mkStdRNG                        System.Random         System/Random.hs:(452,1)-(455,55) 486          1    0.0    0.0     0.0    0.0
+ CAF:getStdRandom6                 System.Random         <no location info>                292          0    0.0    0.0     0.0    0.0
+  getTime                          System.Random         System/Random.hs:(131,1)-(134,60) 488          1    0.0    0.0     0.0    0.0
+ CAF:lvl_r6Zo                      Main                  <no location info>                454          0    0.0    0.0     0.0    0.0
+  main                             Main                  src/Main.hs:(73,1)-(83,53)        501          0    0.0    0.0     0.0    0.0
+   main.rxs                        Main                  src/Main.hs:77:9-54               502          0    0.0    0.0     0.0    0.0
+    randomRs                       System.Random         System/Random.hs:310:3-76         503          0    0.0    0.0     0.0    0.0
+     randomRs.\                    System.Random         System/Random.hs:310:42-75        504          0    0.0    0.0     0.0    0.0
+      randomR                      System.Random         System/Random.hs:345:34-61        505          1    0.0    0.0     0.0    0.0
+ CAF:main1                         Main                  <no location info>                462          0    0.0    0.0     0.0    0.0
+  main                             Main                  src/Main.hs:(73,1)-(83,53)        480          1    0.0    0.0     0.0    0.0
+ CAF:main_n                        Main                  src/Main.hs:76:9                  458          0    0.0    0.0     0.0    0.0
+  main                             Main                  src/Main.hs:(73,1)-(83,53)        493          0    0.0    0.0     0.0    0.0
+   main.n                          Main                  src/Main.hs:76:9-18               494          1    0.0    0.0     0.0    0.0
+ CAF:main_nulls                    Main                  src/Main.hs:75:9-13               456          0    0.0    0.0     0.0    0.0
+  main                             Main                  src/Main.hs:(73,1)-(83,53)        543          0    0.0    0.0     0.0    0.0
+   main.nulls                      Main                  src/Main.hs:75:9-25               544          1    0.0    0.0     0.0    0.0
+ CAF:q_rgpU                        System.Random         System/Random.hs:481:8            303          0    0.0    0.0     0.0    0.0
+  randomIvalInteger                System.Random         System/Random.hs:(468,1)-(489,76) 513          0    0.0    0.0     0.0    0.0
+   randomIvalInteger.q             System.Random         System/Random.hs:481:8-15         514          1    0.0    0.0     0.0    0.0
+ CAF:rand_r6Zt                     Main                  <no location info>                457          0    0.0    0.0     0.0    0.0
+  main                             Main                  src/Main.hs:(73,1)-(83,53)        497          0    0.0    0.0     0.0    0.0
+   main.rxs                        Main                  src/Main.hs:77:9-54               498          0    0.0    0.0     0.0    0.0
+    randomRs                       System.Random         System/Random.hs:310:3-76         499          0    0.0    0.0     0.0    0.0
+     randomRs.\                    System.Random         System/Random.hs:310:42-75        500          0    0.0    0.0     0.0    0.0
+      randomR                      System.Random         System/Random.hs:345:34-61        506          0    0.0    0.0     0.0    0.0
+       randomIvalIntegral          System.Random         System/Random.hs:462:1-71         507          1    0.0    0.0     0.0    0.0
+ CAF:stdRange                      System.Random         System/Random.hs:514:1-8          291          0    0.0    0.0     0.0    0.0
+  stdRange                         System.Random         System/Random.hs:514:1-26         539          1    0.0    0.0     0.0    0.0
+ CAF:theStdGen                     System.Random         System/Random.hs:566:1-9          296          0    0.0    0.0     0.0    0.0
+  theStdGen                        System.Random         System/Random.hs:(566,1)-(568,15) 484          1    0.0    0.0     0.0    0.0
+   mkStdRNG                        System.Random         System/Random.hs:(452,1)-(455,55) 487          0    0.0    0.0     0.0    0.0
+    createStdGen                   System.Random         System/Random.hs:276:1-44         520          1    0.0    0.0     0.0    0.0
+     mkStdGen32                    System.Random         System/Random.hs:(267,1)-(273,36) 521          1    0.0    0.0     0.0    0.0
+      mkStdGen32.(...)             System.Random         System/Random.hs:272:9-39         523          1    0.0    0.0     0.0    0.0
+      mkStdGen32.q                 System.Random         System/Random.hs:272:9-39         526          1    0.0    0.0     0.0    0.0
+      mkStdGen32.s                 System.Random         System/Random.hs:271:9-45         524          1    0.0    0.0     0.0    0.0
+      mkStdGen32.s1                System.Random         System/Random.hs:272:9-39         522          1    0.0    0.0     0.0    0.0
+      mkStdGen32.s2                System.Random         System/Random.hs:273:9-36         525          1    0.0    0.0     0.0    0.0
+    getTime                        System.Random         System/Random.hs:(131,1)-(134,60) 489          0    0.0    0.0     0.0    0.0
+     getTime.daytime               System.Random         System/Random.hs:133:7-44         490          1    0.0    0.0     0.0    0.0
+ main                              Main                  src/Main.hs:(73,1)-(83,53)        481          0   13.7    5.5   100.0  100.0
+  heightTreap                      Main                  src/Main.hs:(58,1)-(59,96)        491     200001    1.2    0.0     1.2    0.0
+  inOrder                          Main                  src/Main.hs:(51,1)-(52,80)        587     200001    1.9    9.1     1.9    9.1
+  main.\                           Main                  src/Main.hs:83:36                 589     100000    0.0    0.0     0.0    0.0
+  main.nodeList                    Main                  src/Main.hs:78:9-55               542          1    0.3    1.1     4.0    8.6
+   feedFold                        Main                  src/Main.hs:(14,1)-(16,44)        545     100001    0.2    1.9     3.6    7.5
+    feedFold.(...)                 Main                  src/Main.hs:15:27-41              550     100000    0.5    0.0     3.4    5.5
+     buildNode                     Main                  src/Main.hs:(22,1)-(23,62)        551     100000    0.2    2.0     2.9    5.5
+      buildNode.(...)              Main                  src/Main.hs:22:25-40              553     100000    0.5    0.3     2.7    3.5
+       stdNext                     System.Random         System/Random.hs:(518,1)-(528,64) 556     100000    2.1    2.5     2.2    3.2
+        stdNext.k                  System.Random         System/Random.hs:522:17-38        557     100000    0.0    0.0     0.0    0.0
+        stdNext.k'                 System.Random         System/Random.hs:526:17-38        560     100000    0.0    0.0     0.0    0.0
+        stdNext.s1'                System.Random         System/Random.hs:523:17-59        558     100000    0.0    0.0     0.0    0.0
+        stdNext.s1''               System.Random         System/Random.hs:524:17-64        559     100000    0.2    0.2     0.2    0.2
+        stdNext.s2'                System.Random         System/Random.hs:527:17-60        561     100000    0.0    0.0     0.0    0.0
+        stdNext.s2''               System.Random         System/Random.hs:528:17-64        562     100000    0.0    0.2     0.0    0.2
+        stdNext.z                  System.Random         System/Random.hs:520:17-34        564     100000    0.0    0.2     0.0    0.2
+        stdNext.z'                 System.Random         System/Random.hs:519:17-58        563     100000    0.0    0.0     0.0    0.0
+      buildNode.p                  Main                  src/Main.hs:22:25-40              552     100000    0.0    0.0     0.0    0.0
+      buildNode.g'                 Main                  src/Main.hs:22:25-40              555      99999    0.0    0.0     0.0    0.0
+    feedFold.y                     Main                  src/Main.hs:15:27-41              549     100000    0.0    0.0     0.0    0.0
+    feedFold.g'                    Main                  src/Main.hs:15:27-41              554      99999    0.0    0.0     0.0    0.0
+  main.rxs                         Main                  src/Main.hs:77:9-54               492          1    0.3    0.8     9.8   13.0
+   randomRs                        System.Random         System/Random.hs:310:3-76         495          1    0.0    0.0     9.5   12.2
+    randomRs.\                     System.Random         System/Random.hs:310:42-75        496          1    0.2    0.7     9.5   12.2
+     randomR                       System.Random         System/Random.hs:345:34-61        508          0    0.0    0.0     9.3   11.5
+      randomIvalIntegral           System.Random         System/Random.hs:462:1-71         509          0    0.2    0.3     9.3   11.5
+       randomIvalInteger           System.Random         System/Random.hs:(468,1)-(489,76) 510     100000    3.6    4.4     9.1   11.2
+        randomIvalInteger.f        System.Random         System/Random.hs:(486,8)-(489,76) 515     200000    0.7    0.3     4.5    4.7
+         randomIvalInteger.f.(...) System.Random         System/Random.hs:488:25-39        518     100000    0.7    0.3     3.3    3.5
+          stdNext                  System.Random         System/Random.hs:(518,1)-(528,64) 527     100000    2.6    2.5     2.6    3.2
+           stdNext.k               System.Random         System/Random.hs:522:17-38        530     100000    0.0    0.0     0.0    0.0
+           stdNext.k'              System.Random         System/Random.hs:526:17-38        533     100000    0.0    0.0     0.0    0.0
+           stdNext.s1'             System.Random         System/Random.hs:523:17-59        531     100000    0.0    0.0     0.0    0.0
+           stdNext.s1''            System.Random         System/Random.hs:524:17-64        532     100000    0.0    0.2     0.0    0.2
+           stdNext.s2'             System.Random         System/Random.hs:527:17-60        534     100000    0.0    0.0     0.0    0.0
+           stdNext.s2''            System.Random         System/Random.hs:528:17-64        535     100000    0.0    0.2     0.0    0.2
+           stdNext.z               System.Random         System/Random.hs:520:17-34        529     100000    0.0    0.2     0.0    0.2
+           stdNext.z'              System.Random         System/Random.hs:519:17-58        528     100000    0.0    0.0     0.0    0.0
+         randomIvalInteger.f.v'    System.Random         System/Random.hs:489:25-76        516     100000    0.5    0.9     0.5    0.9
+         randomIvalInteger.f.x     System.Random         System/Random.hs:488:25-39        517     100000    0.0    0.0     0.0    0.0
+         randomIvalInteger.f.g'    System.Random         System/Random.hs:488:25-39        548      99999    0.0    0.0     0.0    0.0
+        randomIvalInteger.(...)    System.Random         System/Random.hs:472:8-36         537     100000    0.0    0.0     0.0    0.0
+         genRange                  System.Random         System/Random.hs:219:3-23         538     100000    0.0    0.0     0.0    0.0
+        randomIvalInteger.b        System.Random         System/Random.hs:473:8-54         541     100000    0.5    1.1     0.5    1.1
+        randomIvalInteger.genhi    System.Random         System/Random.hs:472:8-36         540     100000    0.0    0.0     0.0    0.0
+        randomIvalInteger.genlo    System.Random         System/Random.hs:472:8-36         536     100000    0.2    0.0     0.2    0.0
+        randomIvalInteger.k        System.Random         System/Random.hs:482:8-20         511     100000    0.2    0.7     0.2    0.7
+        randomIvalInteger.magtgt   System.Random         System/Random.hs:483:8-21         512     100000    0.2    0.2     0.2    0.2
+  main.treap                       Main                  src/Main.hs:79:9-41               546          1    0.0    0.0    69.4   63.7
+   insertMany                      Main                  src/Main.hs:55:1-30               547          1    0.0    0.8    69.4   63.7
+    insertTreap                    Main                  src/Main.hs:(45,1)-(48,44)        565     100000    0.3    0.0    69.4   63.0
+     mergeTreap                    Main                  src/Main.hs:(36,1)-(42,71)        572    2894829   17.4   13.3    20.8   13.3
+      node                         Main                  src/Main.hs:10:31-34              576    2694829    0.0    0.0     0.0    0.0
+      left                         Main                  src/Main.hs:10:52-55              577    1697328    0.0    0.0     0.0    0.0
+      mergeTreap.mt                Main                  src/Main.hs:39:22-51              578    1697328    1.7    0.0     1.7    0.0
+       right                       Main                  src/Main.hs:10:74-78              579    1697328    0.0    0.0     0.0    0.0
+      mergeTreap.mt                Main                  src/Main.hs:41:22-50              584     997501    1.7    0.0     1.7    0.0
+       left                        Main                  src/Main.hs:10:52-55              585     997501    0.0    0.0     0.0    0.0
+      right                        Main                  src/Main.hs:10:74-78              586     997501    0.0    0.0     0.0    0.0
+     insertTreap.(...)             Main                  src/Main.hs:46:9-33               566     100000    0.3    0.0    48.3   49.6
+      splitTreap                   Main                  src/Main.hs:(26,1)-(33,69)        567    2095573   19.8   42.9    47.9   49.6
+       node                        Main                  src/Main.hs:10:31-34              573    1995573    0.0    0.0     0.0    0.0
+       splitTreap.(...)            Main                  src/Main.hs:31:20-44              582    1047157   15.3    3.6    15.3    3.6
+       splitTreap.lt               Main                  src/Main.hs:31:20-44              581    1047157    0.3    0.0     0.3    0.0
+       splitTreap.rt               Main                  src/Main.hs:31:20-44              583    1047157    0.0    0.0     0.0    0.0
+       splitTreap.(...)            Main                  src/Main.hs:28:20-44              575     948416   12.0    3.2    12.0    3.2
+       splitTreap.lt               Main                  src/Main.hs:28:20-44              574     948416    0.0    0.0     0.0    0.0
+       splitTreap.rt               Main                  src/Main.hs:28:20-44              580     948416    0.5    0.0     0.5    0.0
+     insertTreap.lt                Main                  src/Main.hs:46:9-33               569     100000    0.0    0.0     0.0    0.0
+     insertTreap.rt                Main                  src/Main.hs:46:9-33               571     100000    0.0    0.0     0.0    0.0
+     insertTreap.t'                Main                  src/Main.hs:47:9-56               570     100000    0.0    0.0     0.0    0.0
+  getStdGen                        System.Random         System/Random.hs:563:1-32         483          0    0.0    0.0     0.0    0.0
