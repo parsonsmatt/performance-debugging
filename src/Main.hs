@@ -52,7 +52,7 @@ inOrder Leaf = []
 inOrder Tree {node = n, left = lt, right = rt} = inOrder lt ++ [n] ++ inOrder rt
 
 insertMany :: (Ord v) => Treap v d -> [Node v d] -> Treap v d
-insertMany = foldl insertTreap 
+insertMany = foldl' insertTreap 
 
 heightTreap :: Treap v d -> Int
 heightTreap Leaf = 0
