@@ -5,9 +5,9 @@ module Main (main) where
 import Data.List
 import System.Random
 
-data Node  v d = Node { val :: v, info :: d, prior :: Int } 
+data Node  v d = Node { val :: !v, info :: d, prior :: !Int } 
     deriving (Eq, Show)
-data Treap v d = Leaf | Tree {node :: Node v d, left :: Treap v d, right :: Treap v d}
+data Treap v d = Leaf | Tree {node :: !(Node v d), left :: Treap v d, right :: Treap v d}
     deriving Show
 
 feedFold :: [a] -> t -> (a -> t -> (b, t)) -> [b]
